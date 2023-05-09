@@ -1,0 +1,37 @@
+.card {
+    font-size: large;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border: 0;
+    border-radius: 0.5rem;
+
+    background-color: #f0f8ff;
+    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    width: 9.5rem;
+    height: 10rem;
+
+    margin: 0.5rem;
+}
+
+.card:hover {
+    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+
+.cardChecked {
+    background-color: #c5e3fe;
+    font-weight: bold;
+}
+
+.selectCard {
+    margin-bottom: 1.5rem;
+    width: 70%;
+    height: 40%;
+}

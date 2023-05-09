@@ -1,0 +1,10 @@
+.homeContainer {
+    min-width: 100%;
+    min-height: 80vh;
+}
+
+.countriesTitle {
+    margin: 0.5rem;
+    display: flex;
+    justify-content: center;
+}

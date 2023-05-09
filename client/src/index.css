@@ -1,0 +1,15 @@
+/* Aquí se hace un reseteo del tamaño de caja para todo el contenido del front, así cada componente tendrá el tamaño especificado y no crecerá si se adiciona algún padding */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+::before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito', 'Work Sans', 'Hind', sans-serif;
+}

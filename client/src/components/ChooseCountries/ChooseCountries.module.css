@@ -1,0 +1,134 @@
+.modal {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.isOpen {
+    display: flex;
+}
+
+.modalContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fffaf4;
+    min-width: 45rem;
+    min-height: 32rem;
+    max-width: 45rem;
+    max-height: 32rem;
+    padding: 0.5rem;
+    overflow-y: auto;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.headerOptions {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    width: inherit;
+    margin-bottom: 0.5rem;
+    border-radius: 0.3rem;
+    background-color: #00699e;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.5);
+}
+
+.modalButton {
+    font-family: 'Nunito', 'Work Sans', 'Hind', sans-serif;
+    font-size: medium;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.4);
+
+    color: #fff;
+
+    height: 2rem;
+    width: 3rem;
+
+    border: 0;
+    border-radius: 0.3rem;
+
+    margin: 0.5rem;
+
+    background-color: #a9a9a9;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+.modalButton:hover {
+    background-color: #dfdfdf;
+    cursor: pointer;
+}
+
+.modalButton:active {
+    background-color: #00699e;
+}
+
+/* Contenedor de las banderas seleccionadas ventana modal */
+.flagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+
+    position: sticky;
+    top: 0;
+
+    width: 100%;
+    min-height: 7rem;
+    max-height: 7rem;
+    padding: 0.5rem;
+
+    border-radius: 0.3rem;
+    background-color: #ffffff;
+    box-shadow: inset 0 0.05rem 0.4rem 0.1rem rgba(0, 0, 0, 0.3);
+
+    overflow-y: auto;
+}
+
+/* Contenedor de cada bandera */
+.imageContainer {
+    /* Centrado de imagen ampliada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 11%;
+    height: 5vh;
+    margin: 0.3rem;
+
+    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.4);
+    background-color: #fffaf4;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.imageContainer:hover {
+    opacity: 40%;
+    cursor: pointer;
+}
+
+/* Ampliación de la imagen de bandera */
+.images {
+    width: 4.8rem;
+}
+
+/* Contenedor de las tarjetas de los países */
+.selectCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+}
