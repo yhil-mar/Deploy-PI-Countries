@@ -4,7 +4,7 @@ import { Form, Home, Landing, Detail } from './views/index';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3001/';
+axios.defaults.baseURL = 'https://pi-countries-lak9.onrender.com/';
 
 
 function App() {
