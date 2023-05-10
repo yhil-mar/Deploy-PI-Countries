@@ -1,5 +1,5 @@
 import style from './SearchBar.module.css';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cleanFilters, cleanSearch, firstPage, searchCountries, setSearch, showAll } from "../../redux/actions";
 
@@ -11,7 +11,6 @@ const SearchBar = () => {
 
     const handleChange = (event) => {
         dispatch(setSearch(event.target.value));
-        // dispatch(cleanFilters());
         dispatch(firstPage());
     };
     const handleShowAll = (event) => {

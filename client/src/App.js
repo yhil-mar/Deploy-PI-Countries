@@ -6,7 +6,6 @@ import Footer from './components/Footer/Footer';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://pi-countries-lak9.onrender.com/';
 
-
 function App() {
 
   return (

@@ -5,12 +5,11 @@ import { changeHandler, addHandler, removeCountriesHandler } from '../../handler
 import { useModal } from '../../hooks/useModal';
 import { useSelector, useDispatch } from 'react-redux';
 import { cleanForm, fixCountries, indexFound } from '../../utils';
-import { cleanSearch, getCountries } from '../../redux/actions';
+import { cleanFilters, cleanSearch, getCountries } from '../../redux/actions';
 
 const Form = () => {
 
-    const allCountries = useSelector(state => state.allCountries);
-    const countries = useSelector(state => state.countries);
+    const { allCountries, countries } = useSelector(state => state);
     const dispatch = useDispatch();
 
     const [form, setForm] = useState({
@@ -31,14 +30,14 @@ const Form = () => {
 
     const [visButton, setVisButton] = useState(false);
 
-    const { isOpen, openModel, closeModel } = useModal(false);
-
     const [select, setSelect] = useState(false);
 
+    const { isOpen, openModel, closeModel } = useModal(false);
 
     useEffect(() => {
         dispatch(getCountries());
         dispatch(cleanSearch());
+        dispatch(cleanFilters())
     }, [dispatch]);
 
     const handleChange = (event) => {

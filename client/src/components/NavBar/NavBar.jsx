@@ -2,23 +2,44 @@ import { Link, useLocation } from 'react-router-dom';
 import style from './NavBar.module.css';
 import SearchBar from '../SearchBar/SearchBar';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeRoute, setSearch } from '../../redux/actions';
+import { changeRoute, setSearch, orderSelect, filterSelect } from '../../redux/actions';
 import { useState } from 'react';
 
 const NavBar = () => {
-    const { searchInput } = useSelector(state => state);
-    const [searching, setSearching] = useState(searchInput)
+    const { searchInput, selectedOptions } = useSelector(state => state);
+
+    const [searching, setSearching] = useState(searchInput);
+    const [keepOptions, setKeepOptions] = useState({
+        orderOption: '',
+        filterOptions: {
+            continent: '',
+            activity: '',
+        },
+    });
+
     const dispatch = useDispatch();
     const location = useLocation()
 
     const handleBack = () => {
-        location.pathname === '/create' && dispatch(setSearch(searching));
+        if (location.pathname === '/create') {
+            dispatch(setSearch(searching));
+            dispatch(orderSelect(keepOptions.orderOption));
+            dispatch(filterSelect(keepOptions.filterOptions));
+        };
         setSearching('');
+        setKeepOptions({
+            orderOption: '',
+            filterOptions: {
+                continent: '',
+                activity: '',
+            },
+        });
         dispatch(changeRoute(true));
     };
 
     const handleKeep = () => {
         setSearching(searchInput);
+        setKeepOptions({ ...selectedOptions });
     }
 
     const handleReload = () => {
