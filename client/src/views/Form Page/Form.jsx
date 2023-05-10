@@ -45,7 +45,7 @@ const Form = () => {
     };
 
     const handleAdd = async (event) => {
-        await addHandler(event, form) && cleanForm(setForm);
+        await addHandler(event, form) && cleanForm(setForm) && setVisButton(!visButton);
     };
 
     const handleRemoveCountries = (event) => {

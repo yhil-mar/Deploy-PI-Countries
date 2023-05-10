@@ -6,6 +6,7 @@ const cleanForm = (setForm) => {
         season: '',
         countries: '',
     });
+    return true;
 };
 
 export default cleanForm;
