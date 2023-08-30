@@ -9,7 +9,7 @@ const ChargingScreen = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowText(true);
-        }, 20000);
+        }, 30000);
     });
 
     return (

@@ -9,7 +9,7 @@ const Home = () => {
 
     const dispatch = useDispatch();
 
-    const { countries, activities, selectedOptions, searchInput, numPage } = useSelector(state => state);
+    const { allCountries, countries, activities, selectedOptions, searchInput, numPage } = useSelector(state => state);
 
     useEffect(() => {
         !countries.length && dispatch(getCountries());
@@ -27,7 +27,7 @@ const Home = () => {
         <div className={style.homeContainer}>
 
             {
-                countries.length
+                allCountries.length
                     ? <CardsContainer
                         countries={countries}
                         activities={activities}
@@ -35,8 +35,6 @@ const Home = () => {
                         numPage={numPage} />
                     : <ChargingScreen />
             }
-
-            {/* <ChargingScreen /> */}
 
         </ div>
 
