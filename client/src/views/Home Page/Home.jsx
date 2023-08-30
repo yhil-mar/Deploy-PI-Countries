@@ -3,6 +3,7 @@ import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { changeRoute, filterCountries, getActivities, getCountries, orderCountries, searchCountries } from "../../redux/actions";
+import ChargingScreen from '../../components/ChargingScreen/ChargingScreen';
 
 const Home = () => {
 
@@ -18,17 +19,27 @@ const Home = () => {
 
         selectedOptions.orderOption && dispatch(orderCountries(selectedOptions.orderOption));
         Object.keys(selectedOptions.filterOptions).length && dispatch(filterCountries(selectedOptions.filterOptions));
-        
+
     }, [dispatch]);
 
     return (
+
         <div className={style.homeContainer}>
-            <CardsContainer
-                countries={countries}
-                activities={activities}
-                selectedOptions={selectedOptions}
-                numPage={numPage} />
+
+            {
+                countries.length
+                    ? <CardsContainer
+                        countries={countries}
+                        activities={activities}
+                        selectedOptions={selectedOptions}
+                        numPage={numPage} />
+                    : <ChargingScreen />
+            }
+
+            {/* <ChargingScreen /> */}
+
         </ div>
+
     );
 };
 

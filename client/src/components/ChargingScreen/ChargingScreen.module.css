@@ -1,0 +1,28 @@
+.chargingScreenContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    width: 100%;
+    min-height: 80vh;
+}
+
+.chargingTitle,
+.waitText,
+.problemText {
+    margin: 0;
+}
+
+.problemText {
+    position: absolute;
+    bottom: 20%;
+}
+
+.spinnerCharge {
+    fill: #00699e;
+    width: 6rem;
+    display: block;
+    shape-rendering: auto;
+}
