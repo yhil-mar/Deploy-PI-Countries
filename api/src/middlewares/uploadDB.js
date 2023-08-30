@@ -3,10 +3,17 @@ const getAllCountries = require('../controllers/allCountries.js');
 
 module.exports = async () => {
 
-        const countries = await getAllCountries()
+        try {
+                const countries = await getAllCountries();
 
-        await Country.bulkCreate(countries)
+                await Country.bulkCreate(countries);
 
-        return console.log('data cargada con éxito');
+                return console.log('Data cargada con éxito');
+
+        } catch (error) {
+
+                return console.log('Ocurrió un error: ' + error);;
+
+        }
 
 };

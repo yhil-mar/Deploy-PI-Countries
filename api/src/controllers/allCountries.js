@@ -6,7 +6,7 @@ module.exports = async () => {
         return {
             id: country.cca3,
             name: country.name.common,
-            image: country.flags[0],
+            image: country.flags.svg,
             continent: country.continents[0],
             capital: country.capital ? country.capital[0] : "Has no capital",
             subregion: country.subregion,

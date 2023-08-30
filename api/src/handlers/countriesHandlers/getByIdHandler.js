@@ -1,4 +1,4 @@
-const getCountrieById = require('../../controllers/getCountryById');
+const getCountryById = require('../../controllers/getCountryById');
 
 module.exports = async (req, res) => {
 
@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
 
     try {
 
-        const country = await getCountrieById(idPais);
+        const country = await getCountryById(idPais);
 
         res.status(200).json(country);
 
