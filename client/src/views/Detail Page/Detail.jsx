@@ -19,16 +19,22 @@ const Detail = () => {
         <div className={style.detailPage}>
             {country.id ? (
                 <div className={style.detailContainer}>
-                    <h1 className={style.detailTitle}>{country.name}</h1>
+
+                    <h2 className={style.detailTitle}>{country.name}</h2>
+
                     <div className={style.imageContainer}>
-                        <img src={country.image} className={style.countryImage} alt='' />
+                        <img src={country.image} className={style.countryImage} />
                     </div>
-                    <h3 className={style.detailText}><u>ID:</u> {country.id}</h3>
-                    <h3 className={style.detailText}><u>Continent:</u> {country.continent}</h3>
-                    <h3 className={style.detailText}><u>Capital:</u> {country.capital}</h3>
-                    {country.subregion !== null && <h3 className={style.detailText}><u>Subregion:</u> {country.subregion}</h3>}
-                    {country.area > 0 && <h3 className={style.detailText}><u>Area:</u> {country.area} km²</h3>}
-                    <h3 className={style.detailText}><u>Population:</u> {country.population}</h3>
+
+                    <div className={style.detailInfo}>
+                        <h4 className={style.detailText}><u>ID:</u> {country.id}</h4>
+                        <h4 className={style.detailText}><u>Continent:</u> {country.continent}</h4>
+                        <h4 className={style.detailText}><u>Capital:</u> {country.capital}</h4>
+                        {country.subregion !== null && <h4 className={style.detailText}><u>Subregion:</u> {country.subregion}</h4>}
+                        {country.area > 0 && <h4 className={style.detailText}><u>Area:</u> {country.area} km²</h4>}
+                        <h4 className={style.detailText}><u>Population:</u> {country.population}</h4>
+                    </div>
+
                 </div>
             ) : (
                 <h4>Loading...</h4>

@@ -34,6 +34,8 @@ const Form = () => {
 
     const { isOpen, openModel, closeModel } = useModal(false);
 
+    const [showLoading, setShowLoading] = useState(false);
+
     useEffect(() => {
         dispatch(getCountries());
         dispatch(cleanSearch());
@@ -45,7 +47,9 @@ const Form = () => {
     };
 
     const handleAdd = async (event) => {
+        setShowLoading(true);
         await addHandler(event, form) && cleanForm(setForm) && setVisButton(!visButton);
+        setShowLoading(false);
     };
 
     const handleRemoveCountries = (event) => {
@@ -55,16 +59,19 @@ const Form = () => {
 
     return (
         <div className={style.pageContainer}>
-            <div className={style.boxForm}>
+
+            <form className={style.formContainer} autoComplete='off'>
+
                 <h1 className={style.formTitle}>¡Create an activity!</h1>
-                <form className={style.formContainer} autoComplete='off'>
 
-                    <label htmlFor="name">Name: </label>
+                <div className={style.formField}>
+                    <label className={style.labelField} htmlFor="name">Name: </label>
                     <input className={style.formInput} type="text" name="name" value={form.name} onChange={handleChange} />
-
                     <span className={style.warning}>{errors.name}</span>
+                </div>
 
-                    <label htmlFor="duration">Duration (hours): </label>
+                <div className={style.formField}>
+                    <label className={style.labelField} htmlFor="duration">Duration (hours): </label>
                     <input
                         className={style.formInput}
                         type="number"
@@ -74,8 +81,10 @@ const Form = () => {
                         max={24}
                         onChange={handleChange} />
                     <span className={style.warning}>{errors.duration}</span>
+                </div>
 
-                    <label htmlFor="difficult">Difficult (min 1 - max 5): </label>
+                <div className={style.formField}>
+                    <label className={style.labelField} htmlFor="difficult">Difficult (min 1 - max 5): </label>
                     <select className={style.formSelect} name='difficult' value={form.difficult} onChange={handleChange}>
                         <option hidden>...</option>
                         <option>1</option>
@@ -85,8 +94,10 @@ const Form = () => {
                         <option>5</option>
                     </select>
                     <span className={style.warning}>{errors.difficult}</span>
+                </div>
 
-                    <label htmlFor="season">Season: </label>
+                <div className={style.formField}>
+                    <label className={style.labelField} htmlFor="season">Season: </label>
                     <select className={style.formSelect} name='season' value={form.season} onChange={handleChange}>
                         <option hidden>Select...</option>
                         <option>Summer</option>
@@ -95,8 +106,10 @@ const Form = () => {
                         <option>Spring</option>
                     </select>
                     <span className={style.warning}>{errors.season}</span>
+                </div>
 
-                    <label htmlFor="countries">Countries: </label>
+                <div className={`${style.formField} ${style.countriesField}`}>
+                    <label className={style.labelField} htmlFor="countries">Countries: </label>
                     <div className={style.flagsContainer}>
                         {fixCountries(form).countries.map(country => {
                             return < div className={style.imageContainer} key={country}>
@@ -123,12 +136,22 @@ const Form = () => {
                         select={select}
                         setSelect={setSelect} />
                     <span className={style.warning}>{errors.countries}</span>
+                </div>
 
-                    <div className={style.addContainer}>
-                        <button className={style.submitButton} disabled={!visButton} onClick={handleAdd}>Add</button>
+                <button className={style.submitButton} disabled={!visButton} onClick={handleAdd}>Add</button>
+
+                <div className={`${style.sendLoading} ${showLoading ? style.sending : ''}`}>
+                    <div className={style.sendLoadingContainer}>
+                        <h4 className={style.chargingTitle}>Creating Activity...</h4>
+                        <svg className={style.spinnerCharge} xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                            <path d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" stroke="none">
+                                <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51;360 50 51"></animateTransform>
+                            </path>
+                        </svg>
                     </div>
-                </form>
-            </div>
+                </div>
+
+            </form>
         </div>
     );
 

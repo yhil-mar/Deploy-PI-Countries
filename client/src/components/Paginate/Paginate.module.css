@@ -1,34 +1,49 @@
 .paginateContainer {
-    position:static;
-    left: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* position:static; */
+    /* left: 3rem; */
 }
 
 .numbers {
-    font-size: small;
-    text-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
+    font-size: var(--step--2);
+    line-height: var(--step--2);
+    /* text-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2); */
 }
 
-.button3 {
-    font-family: 'Nunito', 'Work Sans', 'Hind', sans-serif;
-    font-size: small;
-    text-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
+.paginateButton {
+    font-size: var(--step--2);
+    line-height: var(--step--2);
+    font-weight: bold;
 
-    color: #fff;
-
-    height: 1.2rem;
-    width: 1.2rem;
-    margin: 0 0.5rem;
-    padding: 0.1rem;
-
-    border: 0;
+    padding: 0.2rem 0.4rem;
     border-radius: 0.3rem;
 
-    background-color: #a9a9a9;
-    /* box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.5); */
-    transition: background-color 0.3s ease;
+    color: var(--white-color);
+    background-color: var(--second-color);
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+
+    transition: all 0.3s;
 }
 
-.button3:hover {
-    background-color: #dfdfdf;
+.paginateButton:hover {
+    color: var(--black-color);
+    background-color: var(--gray-light-color);
     cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+    .paginateContainer {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+
+@media screen and (max-width: 700px) {
+    .paginateContainer {
+        margin: 0;
+    }
 }

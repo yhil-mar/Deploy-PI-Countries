@@ -6,7 +6,7 @@ const Paginate = ({ numPage, amountPages }) => {
     const dispatch = useDispatch();
 
     const handlePage = (event) => {
-        const action = event.target.value;
+        const action = event.target.id;
         if (action === 'next') dispatch(nextPage());
         else dispatch(prevPage());
     };
@@ -16,17 +16,12 @@ const Paginate = ({ numPage, amountPages }) => {
             <span className={style.numbers}>Page {numPage} of {amountPages}</span>
             {
                 numPage > 1 &&
-                <span>
-                    <button className={style.button3} value='prev' onClick={handlePage}>{'<'}</button>
-                    {/* <span className={style.numbers}>{numPage - 1}</span> */}
-                </span>
+                <div id='prev' className={style.paginateButton} onClick={handlePage}>{'<'}</ div>
             }
+
             {
                 numPage < amountPages &&
-                <span>
-                    {/* <span className={style.numbers}>{numPage + 1}</span> */}
-                    <button className={style.button3} value='next' onClick={handlePage}>{'>'}</button>
-                </span>
+                <div id='next' className={style.paginateButton} onClick={handlePage}>{'>'}</ div>
             }
         </div>
     );

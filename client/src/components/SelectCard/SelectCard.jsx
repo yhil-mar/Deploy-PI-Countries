@@ -11,8 +11,10 @@ const SelectCard = ({ id, name, image, form, setForm, setErrors, setVisButton, s
 
     return (
         <div id={id} name='countries' className={`${style.card} ${fixCountries(form).countries.includes(id) && style.cardChecked}`} onClick={handleAddCountry}>
-            <img className={style.selectCard} id={id} src={image} alt="" width='40rem' />
-            <span className={style.textCard} id={id}>{name}</span>
+            <div className={style.imageContainer} id={id}>
+                <img className={style.selectImage} id={id} src={image} />
+            </div>
+            <h6 className={style.textCard} id={id}>{name}</h6>
         </div>
     );
 };

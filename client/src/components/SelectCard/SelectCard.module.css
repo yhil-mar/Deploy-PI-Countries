@@ -1,37 +1,51 @@
 .card {
-    font-size: large;
-
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+
     text-align: center;
 
+    padding: 1rem;
     border: 0;
     border-radius: 0.5rem;
 
-    background-color: #f0f8ff;
+    background-color: var(--bg-second-color);
     box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-
-    width: 9.5rem;
-    height: 10rem;
-
-    margin: 0.5rem;
+    transition: all 0.3s;
 }
 
 .card:hover {
-    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.6);
+    background-color: var(--bg-third-color);
     cursor: pointer;
 }
 
 .cardChecked {
-    background-color: #c5e3fe;
-    font-weight: bold;
+    /* background-color: #c5e3fe; */
+    background-color: var(--bg-third-color);
+    /* font-weight: bold; */
 }
 
-.selectCard {
-    margin-bottom: 1.5rem;
-    width: 70%;
-    height: 40%;
+.imageContainer {
+    width: 60%;
+    height: 3rem;
+}
+
+.selectImage {
+    width: 100%;
+    /* height: auto; */
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 700px) {
+    .imageContainer {
+        width: 80%;
+        height: 3.5rem;
+        /* aspect-ratio: 16 / 9; */
+    }
 }

@@ -1,6 +1,61 @@
+:root {
+
+    /********** Paleta de Colores **********/
+
+    --first-color: #00699E;
+    --first-alpha-color: #00699EBF;
+    --second-color: #837870;
+    --second-alpha-color: #837870BF;
+    --text-color: #000000;
+    --bg-first-color: #FFFAF4;
+    --bg-second-color: #F0F8FF;
+    --bg-second-alpha-color: #F0F8FFBF;
+    --bg-third-color: #d0e5fa;
+    /********** Colores escala de grises **********/
+
+    --white-color: #FFFFFF;
+    --white-alpha-color: #FFFFFFBF;
+    --gray-light-color: #F3F3F3;
+    --gray-light-alpha-color: #F3F3F3BF;
+    --gray-color: #CCCCCC;
+    --gray-alpha-color: #CCCCCCBF;
+    --gray-dark-color: #666666;
+    --gray-dark-alpha-color: #666666BF;
+    --black-color: #000000;
+    --black-alpha-color: #000000BF;
+
+    /********** Medidas caja **********/
+
+    --max-width: 1200px;
+    --media-query-tablet: 1024px;
+    --media-query-phone: 700px;
+    --nav-height: 5rem;
+    --nav-mobile-height: 4rem;
+    --footer-height: 5rem;
+    --footer-mobile-height: 4rem;
+
+    /********** Fuentes para texto **********/
+
+    --font: 'Nunito', 'Work Sans', 'Hind', sans-serif;
+
+    /********** Tamaños responsivos para texto: min(320px) max(1200px) **********/
+
+    --step--2: clamp(0.69rem, calc(0.66rem + 0.19vw), 0.80rem);
+    --step--1: clamp(0.83rem, calc(0.77rem + 0.30vw), 1.00rem);
+    --step-0: clamp(1.00rem, calc(0.91rem + 0.45vw), 1.25rem);
+    --step-1: clamp(1.20rem, calc(1.07rem + 0.66vw), 1.56rem);
+    --step-2: clamp(1.44rem, calc(1.25rem + 0.93vw), 1.95rem);
+    --step-3: clamp(1.73rem, calc(1.47rem + 1.30vw), 2.44rem);
+    --step-4: clamp(2.07rem, calc(1.72rem + 1.78vw), 3.05rem);
+    --step-5: clamp(2.49rem, calc(2.01rem + 2.41vw), 3.82rem);
+
+}
+
+
 /* Aquí se hace un reseteo del tamaño de caja para todo el contenido del front, así cada componente tendrá el tamaño especificado y no crecerá si se adiciona algún padding */
 html {
     box-sizing: border-box;
+    font-family: var(--font);
 }
 
 *,
@@ -11,5 +66,52 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Nunito', 'Work Sans', 'Hind', sans-serif;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-size: var(--step-4);
+    /* line-height: 2rem; */
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-size: var(--step-3);
+    /* line-height: 1.5rem; */
+}
+
+h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-size: var(--step-2);
+    /* line-height: 1.125rem; */
+}
+
+h4 {
+    margin: 0;
+    font-size: var(--step-1);
+}
+
+h5 {
+    margin: 0;
+    font-size: var(--step-0);
+}
+
+h6 {
+    margin: 0;
+    font-size: var(--step--1);
+}
+
+span {
+    font-size: var(--step--1);
+}
+
+label {
+    font-size: var(--step-0);
+}
+
+p {
+    font-size: var(--step--1);
 }

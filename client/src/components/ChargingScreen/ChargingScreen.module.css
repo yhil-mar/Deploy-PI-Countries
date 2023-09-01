@@ -1,28 +1,41 @@
 .chargingScreenContainer {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
 
-    width: 100%;
-    min-height: 80vh;
-}
-
-.chargingTitle,
-.waitText,
-.problemText {
-    margin: 0;
+    text-align: center;
+    padding: 1rem;
+    max-width: var(--max-width);
+    min-height: calc(100vh - var(--nav-height) - var(--footer-height));
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .problemText {
-    position: absolute;
-    bottom: 20%;
+    margin-top: 3rem;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.showProblem {
+    opacity: 1;
 }
 
 .spinnerCharge {
-    fill: #00699e;
+    fill: var(--first-color);
     width: 6rem;
     display: block;
     shape-rendering: auto;
+}
+
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 700px) {
+    .chargingScreenContainer {
+        min-height: calc(100vh - var(--nav-mobile-height) - var(--footer-mobile-height));
+    }
 }

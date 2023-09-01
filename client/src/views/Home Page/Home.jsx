@@ -1,9 +1,9 @@
 import style from './Home.module.css'
+import ChargingScreen from '../../components/ChargingScreen/ChargingScreen';
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { changeRoute, filterCountries, getActivities, getCountries, orderCountries, searchCountries } from "../../redux/actions";
-import ChargingScreen from '../../components/ChargingScreen/ChargingScreen';
 
 const Home = () => {
 
@@ -35,6 +35,8 @@ const Home = () => {
                         numPage={numPage} />
                     : <ChargingScreen />
             }
+
+            {/* <ChargingScreen /> */}
 
         </ div>
 

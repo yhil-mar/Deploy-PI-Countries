@@ -47,23 +47,40 @@ const NavBar = () => {
     };
 
     return (
-        <header className={style.navBarContainer}>
+        <header className={style.navBarSection}>
+
             {
                 location.pathname === '/home' ?
-                    <div className={style.navBarOptions}>
-                        <button id='homeButton' className={style.button1} onClick={handleReload}>Home</button>
+                    <section className={style.navBarContainerMain}>
+                        <button id='homeButton' className={style.desktopButton} onClick={handleReload}>Home</button>
+                        <div className={style.mobileButton} onClick={handleReload}>
+                            <svg className={style.iconButton} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm7 7v-5h4v5h-4zm2-15.586 6 6V15l.001 5H16v-5c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v5H6v-9.586l6-6z"></path>
+                            </svg>
+                        </div>
                         <SearchBar />
                         <Link to='/create'>
-                            <button className={style.button1} onClick={handleKeep}>Create Activity</button>
+                            <button className={style.desktopButton} onClick={handleKeep}>Create Activity</button>
+                            <div className={style.mobileButton} onClick={handleKeep}>
+                                <svg className={style.iconButton} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M19 15v-3h-2v3h-3v2h3v3h2v-3h3v-2h-.937zM4 7h11v2H4zm0 4h11v2H4zm0 4h8v2H4z"></path>
+                                </svg>
+                            </div>
                         </Link>
-                    </div>
+                    </section>
                     :
-                    <div className={style.navBarBack}>
+                    <section className={style.navBarContainerAlt}>
                         <Link to='/home'>
-                            <button className={style.button1} onClick={handleBack}> Back</button>
+                            <button className={style.desktopButton} onClick={handleBack}> Back</button>
+                            <div className={style.mobileButton} onClick={handleBack}>
+                                <svg className={style.iconButton} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path>
+                                </svg>
+                            </div>
                         </Link>
-                    </div>
+                    </section>
             }
+
         </header >
     );
 };

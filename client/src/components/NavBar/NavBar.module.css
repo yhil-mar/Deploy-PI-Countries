@@ -1,44 +1,91 @@
-.navBarContainer {
-    height: 10vh;
-    background-color: #00699e;
-    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.5);
+.navBarSection {
     position: sticky;
     top: 0;
+    z-index: 999;
+
+    width: 100%;
+    height: var(--nav-height);
+
+    background-color: var(--first-color);
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.5);
+
 }
 
-.navBarOptions {
-    display:flex;
+.navBarContainerMain,
+.navBarContainerAlt {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    max-width: var(--max-width);
     height: inherit;
-    justify-content: space-evenly;
-    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.navBarBack {
-    padding-left: 3rem;
-    display:flex;
-    height: 10vh;
-    align-items: center;
+.navBarContainerAlt {
+    justify-content: flex-start;
+    padding-left: 4rem;
 }
 
-.button1 {
-    font-family: 'Nunito', 'Work Sans', 'Hind', sans-serif;
-    font-size: medium;
-    text-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.4);
+.desktopButton {
+    font-size: var(--step-0);
+    line-height: var(--step-0);
 
-    color: #fff;
-
-    height: 2rem;
-    width: 8rem;
+    padding: 0.5rem 2rem;
 
     border: 0;
     border-radius: 0.3rem;
 
-    background-color: #a9a9a9;
+    color: var(--white-color);
+    background-color: var(--second-color);
     box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s ease;
+    transition: all 0.3s;
 }
 
-.button1:hover {
-    background-color: #dfdfdf;
+
+.mobileButton {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem;
+
+    background-color: var(--second-color);
+    fill: var(--white-color);
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 0.3rem;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.5);
+
+    transition: all 0.3s;
+}
+
+.desktopButton:hover,
+.mobileButton:hover {
+    background-color: var(--gray-light-color);
+    color: var(--black-color);
+    fill: var(--black-color);
     cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 700px) {
+
+    .navBarSection {
+        height: var(--nav-mobile-height);
+    }
+
+    .navBarContainerAlt {
+        padding-left: 2rem;
+    }
+
+    .desktopButton {
+        display: none;
+    }
+
+    .mobileButton {
+        display: flex;
+    }
 }

@@ -8,18 +8,21 @@ const Landing = () => {
 
     const navigate = useNavigate()
     const { allCountries } = useSelector(state => state);
+
     useEffect(() => {
+
+        // Servirá para recargar y limpiar el estado global cuando se regresa a la landing page
         allCountries.length && window.location.reload();
     }, [allCountries]);
 
     return (
-        <div className={style.landingContainer}>
+        <section className={style.landingContainer}>
             <div className={style.loginContainer}>
-                <h1 className={style.welcome}>¡Welcome to the World!</h1>
-                <button className={style.loginButton} onClick={() => ingresarHandler(navigate)}>Log In</button>
+                <h2 className={style.welcomeText}>¡Welcome to the World!</h2>
+                <button className={style.loginButton} onClick={() => ingresarHandler(navigate)}>Let's go</button>
             </div>
             <span className={style.copy}>Powered by yasc ©</span>
-        </div>
+        </section>
     );
 };
 
