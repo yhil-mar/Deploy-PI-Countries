@@ -5,7 +5,8 @@ const addCountryHandler = (event, form, setForm, setErrors, setVisButton) => {
 
     const addCountry = (prevState) => ({
         ...prevState,
-        countries: prevState.countries + id,
+        // countries: prevState.countries + id,
+        countries: id + prevState.countries,
     });
 
     const removeCountry = (prevState) => ({
@@ -16,7 +17,8 @@ const addCountryHandler = (event, form, setForm, setErrors, setVisButton) => {
     if (!form.countries.includes(id)) {
         setForm(prevState => ({
             ...prevState,
-            countries: prevState.countries + id,
+            // countries: prevState.countries + id,
+            countries: id + prevState.countries,
         }));
         setErrors(validationForm(addCountry(form), 'errors'));
         setVisButton(validationForm(addCountry(form)));

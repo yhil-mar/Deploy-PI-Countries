@@ -152,13 +152,18 @@
 
     .flagsContainer {
         grid-template-columns: repeat(auto-fill, minmax(3rem, 1fr));
-        gap: 0.5rem;
+        /* gap: 0.5rem; */
 
-        padding: 0.5rem;
-        height: 6rem;
+        /* padding: 0.5rem; */
+        height: 7rem;
     }
 
     .imageContainer {
+        height: 2rem;
+        /* height: 100%; */
+    }
+
+    .images {
         height: 2rem;
     }
 
