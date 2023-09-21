@@ -27,7 +27,7 @@ const Landing = () => {
             window.onload = null;
         };
 
-    }, [allCountries]);
+    }, [allCountries, isLoaded]);
 
     return (
 
@@ -35,7 +35,7 @@ const Landing = () => {
 
             {
                 isLoaded
-                    ? <div className={`${style.landingContainer} ${isLoaded ? style.loaded : ''}`}>
+                    ? <div className={`${style.landingContainer}`}>
                         <div className={style.loginContainer}>
                             <h2 className={style.welcomeText}>¡Welcome to the World!</h2>
                             <button className={style.loginButton} onClick={() => ingresarHandler(navigate)}>Let's go</button>
