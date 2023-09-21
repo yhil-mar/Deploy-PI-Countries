@@ -12,7 +12,7 @@ const CardsContainer = ({ countries, activities, selectedOptions, numPage }) => 
 
     const since = (numPage - 1) * 12;
     const until = numPage * 12;
-    const amountPages = Math.ceil(countries.length / 10);
+    const amountPages = Math.ceil(countries.length / 12);
     const viewCountries = countries.slice(since, until);
 
     const [visibleFilters, setVisibleFilters] = useState(false);

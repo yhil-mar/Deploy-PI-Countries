@@ -1,0 +1,53 @@
+.loadingScreenContainer {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    animation-name: enterPage;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+.loadingSpinner {
+    fill: var(--first-color);
+    width: 6rem;
+    display: block;
+    shape-rendering: auto;
+}
+
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 700px) {}
+
+
+@keyframes enterPage {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    10% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
