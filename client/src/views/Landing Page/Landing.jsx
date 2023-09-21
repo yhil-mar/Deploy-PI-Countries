@@ -13,34 +13,34 @@ const Landing = () => {
 
     const [isLoaded, setIsLoaded] = useState(false);
 
+    const handleLoad = () => {
+        setTimeout(() => {
+            setIsLoaded(true);
+        }, 2000);
+    };
+
     useEffect(() => {
         // Servirá para recargar y limpiar el estado global cuando se regresa a la landing page
         allCountries.length && window.location.reload();
 
-        setTimeout(() => {
-            setIsLoaded(true);
-        }, 2000);
-
-    }, [allCountries, isLoaded]);
+    }, [allCountries]);
 
     return (
 
         <section className={`${style.landingSection}`}>
 
-            {
-                isLoaded
-                    ? <div className={`${style.landingContainer}`}>
-                        {/* <img className={style.wallpaperImg}/> */}
-                        <div className={style.loginContainer}>
-                            <h2 className={style.welcomeText}>¡Welcome to the World!</h2>
-                            <button className={style.loginButton} onClick={() => ingresarHandler(navigate)}>Let's go</button>
-                        </div>
+            <LoadingScreen isLoaded={isLoaded} />
 
-                        <span className={style.copy}>Powered by yasc ©</span>
-                    </div>
+            <div className={`${style.landingContainer} ${isLoaded ? style.loaded : ''}`}>
+                <img className={style.wallpaperImg} src='/images/countries-minimalist.jpg' onLoad={handleLoad} />
+                <div className={style.loginContainer}>
+                    <h2 className={style.welcomeText}>¡Welcome to the World!</h2>
+                    <button className={style.loginButton} onClick={() => ingresarHandler(navigate)}>Let's go</button>
+                </div>
 
-                    : <LoadingScreen />
-            }
+                <span className={style.copy}>Powered by yasc ©</span>
+            </div>
+
 
         </section>
 

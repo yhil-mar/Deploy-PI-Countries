@@ -1,10 +1,10 @@
 import style from './LoadingScreen.module.css';
 
-const LoadingScreen = () => {
+const LoadingScreen = ({ isLoaded }) => {
 
     return (
 
-        <section className={style.loadingScreenContainer}>
+        <section className={`${style.loadingScreenContainer} ${!isLoaded ? style.show : ''}`}>
 
             <section className={style.contentContainer}>
 
