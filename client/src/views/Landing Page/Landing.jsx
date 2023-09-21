@@ -38,7 +38,7 @@ const Landing = () => {
                     <button className={style.loginButton} onClick={() => ingresarHandler(navigate)}>Let's go</button>
                 </div>
 
-                <span className={style.copy}>Powered by yasc ©</span>
+                {/* <span className={style.copy}>Powered by yasc ©</span> */}
             </div>
 
 
