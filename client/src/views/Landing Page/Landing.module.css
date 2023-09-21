@@ -24,6 +24,15 @@
     animation-timing-function: ease-in;
 }
 
+/* .wallpaperImg {
+    position: absolute;
+    
+    
+    src: url('../../../public/images/countries-minimalist.jpg');
+    width: 100%;
+    height: 100%;
+} */
+
 .loginContainer {
     display: flex;
     flex-direction: column;

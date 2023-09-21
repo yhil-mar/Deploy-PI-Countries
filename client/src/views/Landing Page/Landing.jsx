@@ -17,15 +17,9 @@ const Landing = () => {
         // Servirá para recargar y limpiar el estado global cuando se regresa a la landing page
         allCountries.length && window.location.reload();
 
-        window.onload = () => {
-            setTimeout(() => {
-                setIsLoaded(true);
-            }, 2000);
-        };
-
-        return () => {
-            window.onload = null;
-        };
+        setTimeout(() => {
+            setIsLoaded(true);
+        }, 2000);
 
     }, [allCountries, isLoaded]);
 
@@ -36,6 +30,7 @@ const Landing = () => {
             {
                 isLoaded
                     ? <div className={`${style.landingContainer}`}>
+                        {/* <img className={style.wallpaperImg}/> */}
                         <div className={style.loginContainer}>
                             <h2 className={style.welcomeText}>¡Welcome to the World!</h2>
                             <button className={style.loginButton} onClick={() => ingresarHandler(navigate)}>Let's go</button>
